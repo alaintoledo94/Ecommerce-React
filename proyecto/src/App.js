@@ -1,21 +1,23 @@
-
-import "bulma/css/bulma-rtl.min.css"
 import NavBar from "./components/NavBar";
-import CardWidget from "./components/CartWidget";
-import ItemListContainer from "./components/ItemListContainer";
-
+import ItemListContainer from "./components/pages/ItemListContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetalleProducto from "./components/pages/DetalleProducto";
+import FiltroProducto from "./components/pages/FiltroProducto";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-  <NavBar>
-    <CardWidget></CardWidget>
-   </NavBar>
-   <ItemListContainer greeting={'Bienvenido'}></ItemListContainer>
-    </div>
-
-  )
-
+    <BrowserRouter>
+      <nav>{<NavBar />}</nav>
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="catalogo/:productoId" element={<DetalleProducto />} />
+        <Route path="categoria/:categoria" element={<FiltroProducto />} />
+        <Route path="*" element={<h1>Error 404</h1>} />
+      </Routes>
+      <footer><Footer/></footer>
+    </BrowserRouter>
+  );
 }
 
 export default App;

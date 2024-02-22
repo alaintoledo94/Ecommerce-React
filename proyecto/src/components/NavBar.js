@@ -1,6 +1,8 @@
 import "bulma/css/bulma-rtl.min.css";
 import Cart from "./assets/cart.png";
-import CardWidget from "./CartWidget";
+import CardWidget from "./pages/CartWidget";
+import { Link } from "react-router-dom";
+
 
 function NavBar() {
   return (
@@ -10,13 +12,13 @@ function NavBar() {
       aria-label="main navigation"
     >
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
+        <Link to="/" class="navbar-item" >
           <img
             src="https://www.midnight-store.com/cdn/shop/files/LOGO_SHOPIFY_PRUEBA_2_200x.png"
             width="115"
             height="56"
           ></img>
-        </a>
+        </Link>
 
         <a
           role="button"
@@ -33,20 +35,12 @@ function NavBar() {
 
       <div id="navbarBasicExample" class="navbar-menu justify-content-between">
         <div class="navbar-start">
-          <a class="navbar-item">Inicio</a>
+          <Link to ="/" class="navbar-item">Todos los Productos</Link>
+          <Link to="/categoria/ropa"  class="navbar-item">Ropa</Link>
+          <Link to="/categoria/electronico"  class="navbar-item">Electronicos</Link>
+          <Link to="/categoria/accesorios" class="navbar-item">Accesorios</Link>
 
-          <a class="navbar-item">Ultimos productos</a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">Categorias</a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">Poleras Manga Corta</a>
-              <a class="navbar-item">Poleras Manga Larga</a>
-              <a class="navbar-item">Polerones Polo</a>
-              <a class="navbar-item">Polerones Canguro</a>
-            </div>
-          </div>
+ 
         </div>
 
         <div class="navbar-end ml-auto">

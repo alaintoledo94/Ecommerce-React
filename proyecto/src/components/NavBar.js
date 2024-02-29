@@ -2,27 +2,28 @@ import "bulma/css/bulma-rtl.min.css";
 import Cart from "./assets/cart.png";
 import CardWidget from "./pages/CartWidget";
 import { Link } from "react-router-dom";
-
+import "../components/navBar.css"; 
 
 function NavBar() {
   return (
     <nav
-      class="navbar is-primary p-3 "
+      className="navbar is-black p-3"
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="navbar-brand">
-        <Link to="/" class="navbar-item" >
+      <div className="navbar-brand">
+        <Link to="/" className="navbar-item">
           <img
             src="https://www.midnight-store.com/cdn/shop/files/LOGO_SHOPIFY_PRUEBA_2_200x.png"
             width="115"
             height="56"
-          ></img>
+            alt="Logo"
+          />
         </Link>
 
         <a
           role="button"
-          class="navbar-burger"
+          className="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -33,23 +34,29 @@ function NavBar() {
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu justify-content-between">
-        <div class="navbar-start">
-          <Link to ="/" class="navbar-item">Todos los Productos</Link>
-          <Link to="/categoria/ropa"  class="navbar-item">Ropa</Link>
-          <Link to="/categoria/electronico"  class="navbar-item">Electronicos</Link>
-          <Link to="/categoria/accesorios" class="navbar-item">Accesorios</Link>
-
- 
+      <div id="navbarBasicExample" className="navbar-menu center-navbar">
+        <div className="navbar-start">
+          <Link to="/" className="navbar-item">
+            Todos los Productos
+          </Link>
+          <Link to="/categoria/ropa" className="navbar-item">
+            Ropa
+          </Link>
+          <Link to="/categoria/electronico" className="navbar-item">
+            Electrónicos
+          </Link>
+          <Link to="/categoria/accesorios" className="navbar-item">
+            Accesorios
+          </Link>
         </div>
 
-        <div class="navbar-end ml-auto">
-          <div class="navbar-item">
-            <div class="buttons ">
-              <span class="icon-text">
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="buttons">
+              <span className="icon-text">
                 <div>
-                  <i class="fas fa-home"></i>
-                  <CardWidget iconoCarrito={Cart}></CardWidget>
+                  <i className="fas fa-home"></i>
+                  <CardWidget iconoCarrito={Cart} />
                 </div>
               </span>
             </div>

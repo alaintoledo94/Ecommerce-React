@@ -1,8 +1,9 @@
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/pages/ItemListContainer";
+import ItemDetailContainer from "./components/pages/ItemDetailContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DetalleProducto from "./components/pages/DetalleProducto";
-import FiltroProducto from "./components/pages/FiltroProducto";
+
+
 import Footer from "./components/Footer";
 
 function App() {
@@ -11,11 +12,13 @@ function App() {
       <nav>{<NavBar />}</nav>
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
-        <Route path="catalogo/:productoId" element={<DetalleProducto />} />
-        <Route path="categoria/:categoria" element={<FiltroProducto />} />
+        <Route path="catalogo/:productoId" element={<ItemDetailContainer />} />
+        <Route path="categoria/:categoryID" element={<ItemListContainer />} />
         <Route path="*" element={<h1>Error 404</h1>} />
       </Routes>
-      <footer><Footer/></footer>
+      <footer>
+        <Footer />
+      </footer>
     </BrowserRouter>
   );
 }

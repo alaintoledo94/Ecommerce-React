@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getProducts } from "../../data";
+import { Link, useParams } from "react-router-dom";
+import { getProducts, getProductsByCategory } from "../../data";
 import "../pages/itemListContainer.css";
+import Item from "../pages/Item";
+import MapeoProductos from "./ItemList";
 
 function ItemListContainer() {
-  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+  const { categoryID } = useParams();
+  const productos = MapeoProductos();
 
   useEffect(() => {
     setLoading(true);
 
-    getProducts()
+    const asyncFunc = categoryID ? getProductsByCategory : getProducts;
+
+    asyncFunc(categoryID)
       .then((response) => {
         setProducts(response);
         setLoading(false);
@@ -19,36 +25,19 @@ function ItemListContainer() {
         console.error(error);
         setLoading(false);
       });
-  }, []);
+  }, [categoryID]);
 
   if (loading) {
     return <div>Cargando productos...</div>;
   }
 
   return (
-    <div>
-      <h1 className="has-text-centered">Productos</h1>
+    <div className="Container">
+      <h1 className="has-text-centered">Productos Disponibles</h1>
       <div className="columns is-multiline is-centered galeria">
-        {products.map((producto, index) => {
-          return (
-            <div key={index} className="column is-one-third has-text-centered">
-              <article className="box tarjeta">
-                <h5>{producto.title}</h5>
-                <img
-                  className="img-prod"
-                  src={producto.image}
-                  alt={producto.description}
-                />
-                <h6>Valor ${producto.price}</h6>
-                <div className="mt-2">
-                  <Link to={`/catalogo/${producto.id}`} className="button">
-                    Más info
-                  </Link>
-                </div>
-              </article>
-            </div>
-          );
-        })}
+        {products.map((product) => (
+          <Item key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

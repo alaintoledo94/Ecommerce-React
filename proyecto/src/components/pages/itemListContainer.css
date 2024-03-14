@@ -10,8 +10,6 @@
   width: 400px;
 }
 
-
-
 .card {
   display: flex;
   flex-direction: column;
@@ -19,19 +17,18 @@
 }
 
 .img-prod {
-  width: 100%; /* Ajusta el ancho de la imagen al contenedor */
+  width: 100%;
   max-width: 800px;
 }
 
-/* Estilos para el contenido de la tarjeta */
 .box-content {
-  flex: 1; /* Ajusta el tamaño del contenido para ocupar el espacio restante */
-  padding: 0 10px; /* Añade un poco de espacio alrededor del contenido */
+  flex: 1;
+  padding: 0 10px;
 }
 
-/* Estilos para el precio */
 .price {
-  margin-top: auto; /* Coloca el precio al final */
+  margin-top: auto;
+  font-weight: bold;
 }
 
 article {

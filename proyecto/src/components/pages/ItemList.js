@@ -1,8 +1,4 @@
-
 import listaProductos from "../../data";
-
-
-
 
 function MapeoProductos() {
   const productosMapeados = listaProductos.map((producto) => ({
@@ -11,8 +7,7 @@ function MapeoProductos() {
     description: producto.description,
     image: producto.image,
     price: producto.price,
-    rating: producto.rating
-   
+    rating: producto.rating,
   }));
 
   return productosMapeados;

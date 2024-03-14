@@ -2,7 +2,7 @@ import "bulma/css/bulma-rtl.min.css";
 import Cart from "./assets/cart.png";
 import CardWidget from "./pages/CartWidget";
 import { Link } from "react-router-dom";
-import "../components/navBar.css"; 
+import "../components/navBar.css";
 
 function NavBar() {
   return (
@@ -34,7 +34,7 @@ function NavBar() {
         </a>
       </div>
 
-      <div id="navbarBasicExample" className="navbar-menu center-navbar">
+      <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Link to="/" className="navbar-item">
             Todos los Productos
@@ -56,7 +56,7 @@ function NavBar() {
               <span className="icon-text">
                 <div>
                   <i className="fas fa-home"></i>
-                  <CardWidget iconoCarrito={Cart} />
+                  <CardWidget />
                 </div>
               </span>
             </div>

@@ -5,10 +5,10 @@ import "./Footer.css";
 function Footer() {
   return (
     <div className="foot">
-      <footer class="footer">
-        <div class="content has-text-centered">
+      <footer className="footer">
+        <div className="content has-text-centered">
           <p>
-            <strong>Midnight Store</strong> by <a href="#">Alain Toledo</a>{" "}
+            <strong>Midnight Store</strong> by <Link to="/">Alain Toledo</Link>{" "}
             2024.
           </p>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getProducts, getProductsByCategory } from "../../data";
 import "../pages/itemListContainer.css";
 import Item from "../pages/Item";
